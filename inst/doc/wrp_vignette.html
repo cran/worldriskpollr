@@ -342,9 +342,12 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 <div id="installation" class="section level1">
 <h1>Installation</h1>
-<p>You can install the development version from <a href="https://github.com/">GitHub</a> with:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;devtools&quot;)</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#devtools::install_github(&quot;githubIEP/worldriskpollr&quot;)</span></span></code></pre></div>
+<p>The CRAN release version of <code>worldriskpollr</code> can be
+installed via:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;worldriskpollr&quot;</span>)</span></code></pre></div>
+<p>You can install the development version from <a href="https://github.com/githubIEP/worldriskpollr/">GitHub</a> with:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;devtools&quot;)</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#devtools::install_github(&quot;githubIEP/worldriskpollr&quot;)</span></span></code></pre></div>
 <p>Once installed you can load the library using:</p>
 </div>
 <div id="introduction" class="section level1">
@@ -415,17 +418,17 @@ question, needed to use the function <code>wrp_get</code>.</p></li>
 <li><p><code>question</code>: The question in full.</p></li>
 <li><p><code>responses</code>: The responses given in the poll.</p></li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">wrp_search</span>(<span class="st">&quot;violence&quot;</span>))</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 × 3</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   wrp_question_uid question                                              respo…¹</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;            &lt;chr&gt;                                                 &lt;chr&gt;  </span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 VH1              Ever Experienced Physical Violence/Harassment at Wor… Yes    </span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 VH1              Ever Experienced Physical Violence/Harassment at Wor… No     </span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 VH1              Ever Experienced Physical Violence/Harassment at Wor… (Respo…</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 VH1              Ever Experienced Physical Violence/Harassment at Wor… (DK)   </span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 VH1              Ever Experienced Physical Violence/Harassment at Wor… (Refus…</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 VH1B             How Many Times You Experienced Physical Violence/Har… Once o…</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with abbreviated variable name ¹​responses</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">wrp_search</span>(<span class="st">&quot;violence&quot;</span>))</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 × 3</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   wrp_question_uid question                                              respo…¹</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;            &lt;chr&gt;                                                 &lt;chr&gt;  </span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 VH1              Ever Experienced Physical Violence/Harassment at Wor… Yes    </span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 VH1              Ever Experienced Physical Violence/Harassment at Wor… No     </span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 VH1              Ever Experienced Physical Violence/Harassment at Wor… (Respo…</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 VH1              Ever Experienced Physical Violence/Harassment at Wor… (DK)   </span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 VH1              Ever Experienced Physical Violence/Harassment at Wor… (Refus…</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 VH1B             How Many Times You Experienced Physical Violence/Har… Once o…</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with abbreviated variable name ¹​responses</span></span></code></pre></div>
 </div>
 <div id="getting-aggregated-world-risk-poll-data-using-wrp_get" class="section level2">
 <h2>Getting aggregated World Risk Poll data using
@@ -458,22 +461,23 @@ rural;</p></li>
 respondent’s household;</p></li>
 <li><p><code>childrenInHousehold</code>, total number of children under
 15 in the respondent’s household.</p></li>
+<li><p><code>global</code>, statistics at the global level</p></li>
 </ul>
 <p>Users need to provide the desired aggregation level to
 <code>wrp_get</code> as a string. It is also necessary to provide a
 question code string, such as those provided returned in
 <code>wrp_search</code>. The use of <code>wrp_get</code> looks like:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">wrp_get</span>(<span class="at">geography =</span> <span class="st">&quot;country&quot;</span>, <span class="at">wrp_question_uid =</span> <span class="st">&quot;Q1&quot;</span>))</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 × 6</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   geography     disaggregation  year question                    respo…¹ perce…²</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;         &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;                       &lt;chr&gt;     &lt;dbl&gt;</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 United States Country Name    2019 Feel More, Less or About a… More s…  9.01  </span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 United States Country Name    2019 Feel More, Less or About a… Less s… 13.4   </span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 United States Country Name    2019 Feel More, Less or About a… About … 27.7   </span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 United States Country Name    2019 Feel More, Less or About a… (DK)     0.0616</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 United States Country Name    2019 Feel More, Less or About a… (Refus…  0.0575</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 United States Country Name    2021 Feel More, Less or About a… More s…  8.03  </span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with abbreviated variable names ¹​response, ²​percentage</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">wrp_get</span>(<span class="at">geography =</span> <span class="st">&quot;country&quot;</span>, <span class="at">wrp_question_uid =</span> <span class="st">&quot;Q1&quot;</span>))</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 × 7</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   geography     disaggregation     group          year question  respo…¹ perce…²</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;         &lt;chr&gt;              &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;     &lt;dbl&gt;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 United States National Statistic United States  2019 Feel Mor… More s…  17.9  </span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 United States National Statistic United States  2019 Feel Mor… Less s…  26.7  </span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 United States National Statistic United States  2019 Feel Mor… About …  55.2  </span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 United States National Statistic United States  2019 Feel Mor… (DK)      0.123</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 United States National Statistic United States  2019 Feel Mor… (Refus…   0.115</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 United States National Statistic United States  2021 Feel Mor… More s…  16.1  </span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with abbreviated variable names ¹​response, ²​percentage</span></span></code></pre></div>
 <p>This returns a 6 column dataframe in tidy format with the following
 columns:</p>
 <ul>
@@ -487,27 +491,39 @@ results.</p></li>
 <li><p><code>percentage</code>: the percentage of respondents for each
 disaggregation that provided the relevant response.</p></li>
 </ul>
+<p>To explore global trends, the user could use:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">wrp_get</span>(<span class="at">geography =</span> <span class="st">&quot;world&quot;</span>, <span class="at">wrp_question_uid =</span> <span class="st">&quot;Q1&quot;</span>))</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 × 7</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   geography disaggregation group             year question       respo…¹ perce…²</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;     &lt;chr&gt;          &lt;chr&gt;            &lt;dbl&gt; &lt;chr&gt;          &lt;chr&gt;     &lt;dbl&gt;</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 World     global         Global Statistic  2019 Feel More, Le… More s…  36.4  </span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 World     global         Global Statistic  2019 Feel More, Le… Less s…  24.9  </span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 World     global         Global Statistic  2019 Feel More, Le… About …  36.1  </span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 World     global         Global Statistic  2019 Feel More, Le… (DK)      2.44 </span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 World     global         Global Statistic  2019 Feel More, Le… (Refus…   0.148</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 World     global         Global Statistic  2021 Feel More, Le… More s…  27.3  </span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with abbreviated variable names ¹​response, ²​percentage</span></span></code></pre></div>
 <p>So a standard use case stringing <code>wrp_search</code> and
 <code>wrp_get</code> together could look like:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Search for a topic</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>tmp <span class="ot">&lt;-</span> <span class="fu">wrp_search</span>(<span class="st">&quot;violence&quot;</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Pick the question of interest</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>tmp <span class="ot">&lt;-</span> tmp[tmp<span class="sc">$</span>question <span class="sc">==</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Ever Experienced Physical Violence/Harassment at Work (all countries)&quot;</span>, ]</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the question code</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>tmp <span class="ot">&lt;-</span> <span class="fu">unique</span>(tmp<span class="sc">$</span>wrp_question_uid)</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># get the data</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">wrp_get</span>(<span class="at">geography =</span> <span class="st">&quot;country&quot;</span>, <span class="at">wrp_question_uid =</span> tmp))</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 × 6</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   geography     disaggregation  year question                    respo…¹ perce…²</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;         &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;                       &lt;chr&gt;     &lt;dbl&gt;</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 United States Country Name    2021 Ever Experienced Physical … Yes      11.8  </span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 United States Country Name    2021 Ever Experienced Physical … No       88.2  </span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 Egypt         Country Name    2021 Ever Experienced Physical … Yes       2.12 </span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 Egypt         Country Name    2021 Ever Experienced Physical … No       63.8  </span></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 Egypt         Country Name    2021 Ever Experienced Physical … (Respo…  33.9  </span></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 Egypt         Country Name    2021 Ever Experienced Physical … (Refus…   0.247</span></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with abbreviated variable names ¹​response, ²​percentage</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Search for a topic</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>tmp <span class="ot">&lt;-</span> <span class="fu">wrp_search</span>(<span class="st">&quot;violence&quot;</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Pick the question of interest</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>tmp <span class="ot">&lt;-</span> tmp[tmp<span class="sc">$</span>question <span class="sc">==</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Ever Experienced Physical Violence/Harassment at Work (all countries)&quot;</span>, ]</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the question code</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>tmp <span class="ot">&lt;-</span> <span class="fu">unique</span>(tmp<span class="sc">$</span>wrp_question_uid)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co"># get the data</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">wrp_get</span>(<span class="at">geography =</span> <span class="st">&quot;country&quot;</span>, <span class="at">wrp_question_uid =</span> tmp))</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 × 7</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   geography     disaggregation     group          year question  respo…¹ perce…²</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;         &lt;chr&gt;              &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;     &lt;dbl&gt;</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 United States National Statistic United States  2021 Ever Exp… Yes      11.8  </span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 United States National Statistic United States  2021 Ever Exp… No       88.2  </span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 Egypt         National Statistic Egypt          2021 Ever Exp… Yes       2.12 </span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 Egypt         National Statistic Egypt          2021 Ever Exp… No       63.8  </span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 Egypt         National Statistic Egypt          2021 Ever Exp… (Respo…  33.9  </span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 Egypt         National Statistic Egypt          2021 Ever Exp… (Refus…   0.247</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with abbreviated variable names ¹​response, ²​percentage</span></span></code></pre></div>
 </div>
 </div>
 

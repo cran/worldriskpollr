@@ -9,13 +9,13 @@
 #' @importFrom rlang .data
 #'
 #' @return data frame with aggregated World Risk Poll question data
-#'
+#' @noRd
 wrp_aggregate <- function(df) {
   df <- df %>%
     group_by_at(c(1, 2, 3, 5)) %>%
     summarise(weightedCount = sum(.data$wgt)) %>%
     ungroup() %>%
-    group_by_at(c(1, 2)) %>%
+    group_by_at(c(1, 2, 3)) %>%
     mutate(percentage = .data$weightedCount /
       sum(.data$weightedCount) * 100) %>%
     ungroup() %>%

@@ -14,6 +14,9 @@ head(wrp_search("violence"))
 head(wrp_get(geography = "country", wrp_question_uid = "Q1"))
 
 ## ---- message = FALSE, warning = FALSE----------------------------------------
+head(wrp_get(geography = "world", wrp_question_uid = "Q1"))
+
+## ---- message = FALSE, warning = FALSE----------------------------------------
 # Search for a topic
 tmp <- wrp_search("violence")
 # Pick the question of interest

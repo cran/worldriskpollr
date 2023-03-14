@@ -1,8 +1,8 @@
 Package: worldriskpollr
 Type: Package
 Title: Aggregated Survey Data from the World Risk Poll
-Version: 0.7.0
-Date: 2023-02-22
+Version: 0.7.2
+Date: 2023-03-14
 Authors@R: person("David", "Hammond", email = "dhammond@economicsandpeace.org", role = c("aut", "cre"))
 Author: David Hammond [aut, cre]
 Maintainer: David Hammond <dhammond@economicsandpeace.org>
@@ -27,6 +27,6 @@ Suggests: knitr, rmarkdown, testthat (>= 3.0.0)
 VignetteBuilder: knitr
 Config/testthat/edition: 3
 NeedsCompilation: no
-Packaged: 2023-02-23 03:48:33 UTC; DavidHammond
+Packaged: 2023-03-14 09:03:16 UTC; DavidHammond
 Repository: CRAN
-Date/Publication: 2023-02-23 14:00:02 UTC
+Date/Publication: 2023-03-14 09:20:02 UTC

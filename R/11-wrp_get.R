@@ -3,7 +3,7 @@
 #' Allows you to access aggregated data for a World Risk Poll question.
 #'
 #' @param geography string, a demographic category by which to aggregate,
-#' needs to be one of "country", "region" or "income"
+#' needs to be one of "country", "region", "income" or "world"
 #' @param wrp_question_uid string, the number code for the survey
 #' question to focus on
 #'
@@ -25,18 +25,27 @@ wrp_get <- function(geography = "country", wrp_question_uid = "Q1") {
   wrp_wgt_col <- .get_weight_column(wrp_geography_col)
   cores <- detectCores()
   cores <- ifelse(Sys.info()[["sysname"]] == "Windows", 1,
-                  min(cores, 2))
+                  min(c(cores, 2)))
   # Aggregate data using weights
-  wrp_agg <- mclapply(.pkgenv$wrp$wrp_disaggregations$pos, function(i) {
+  if (geography == "country") {
+    pos <- .pkgenv$wrp$wrp_disaggregations$pos[-length(.pkgenv$wrp$wrp_disaggregations$pos)]
+  }else {
+    pos <- rev(.pkgenv$wrp$wrp_disaggregations$pos[-1])
+  }
+  wrp_agg <- mclapply(pos, function(i) {
     tmp <- .pkgenv$wrp$wrp_data[, c(
       wrp_geography_col, i, .pkgenv$wrp$wrp_year_col, wrp_wgt_col,
       wrp_question_col
     )]
+    names(tmp)[4] <- "wgt"
     tmp <- tmp[!is.na(tmp[, 5]), ] %>%
       wrp_aggregate() %>%
       wrp_clean()
   }, mc.cores = cores) %>%
     bind_rows()
+  wrp_agg <- wrp_agg %>%
+    mutate(disaggregation = gsub("Country Name", "National Statistic",
+                  .data$disaggregation))
   # Output summary
   message(paste("You have selected:", wrp_question_uid))
   message("This question asks:")
