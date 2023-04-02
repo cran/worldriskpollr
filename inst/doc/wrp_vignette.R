@@ -11,10 +11,10 @@ library(worldriskpollr)
 head(wrp_search("violence"))
 
 ## ---- message = FALSE, warning = FALSE----------------------------------------
-head(wrp_get(geography = "country", wrp_question_uid = "Q1"))
+head(wrp_get(geography = "country", wrp_question_uid = "Q1", disaggregation = 0))
 
 ## ---- message = FALSE, warning = FALSE----------------------------------------
-head(wrp_get(geography = "world", wrp_question_uid = "Q1"))
+head(wrp_get(geography = "world", wrp_question_uid = "Q1", disaggregation = 0))
 
 ## ---- message = FALSE, warning = FALSE----------------------------------------
 # Search for a topic
@@ -25,5 +25,5 @@ tmp <- tmp[tmp$question ==
 # Get the question code
 tmp <- unique(tmp$wrp_question_uid)
 # get the data
-head(wrp_get(geography = "country", wrp_question_uid = tmp))
+head(wrp_get(geography = "country", wrp_question_uid = tmp, disaggregation = 0))
 

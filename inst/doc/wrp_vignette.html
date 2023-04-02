@@ -352,11 +352,11 @@ installed via:</p>
 </div>
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
-<p><strong>The World Risk Poll is the first ever global study of worry
-and risk across the world. The poll was conducted by Gallup as part of
-its World Poll, and is based on interviews with over 150,000 people,
-including those living in places where little or no official data
-exists, yet where reported risks are often high.</strong></p>
+<p>The World Risk Poll is the first ever global study of worry and risk
+across the world. The poll was conducted by Gallup as part of its World
+Poll, and is based on interviews with over 150,000 people, including
+those living in places where little or no official data exists, yet
+where reported risks are often high.</p>
 <p>The World Risk Polls covers the biggest risks faced globally
 including new findings on subjects such as risks faced by women, safety
 of food, experience of serious injury and violence and harassment in the
@@ -444,39 +444,40 @@ level;</p></li>
 <li><p><code>income</code>: data is aggregated based on World Bank
 Income classification of the country.</p></li>
 </ul>
-<p>The results will be disaggregated by the following groups:</p>
+<p>The user also needs to select the desired disaggregation:</p>
 <ul>
-<li><p><code>national</code>, respondent’s nation;</p></li>
-<li><p><code>age group</code>, respondent’s age group;</p></li>
-<li><p><code>gender</code>, respondent’s gender;</p></li>
-<li><p><code>education</code>, respondent’s highest level of
-education;</p></li>
-<li><p><code>incomeFeelings</code>, respondent’s feelings about their
-household income;</p></li>
-<li><p><code>income5</code>, respondent’s per capita income
-quintile;</p></li>
-<li><p><code>urbanicity</code>, respondent’s residence: urban or
-rural;</p></li>
-<li><p><code>householdSize</code>, total number of people in the
-respondent’s household;</p></li>
-<li><p><code>childrenInHousehold</code>, total number of children under
-15 in the respondent’s household.</p></li>
-<li><p><code>global</code>, statistics at the global level</p></li>
+<li><code>0: No disaggregation</code>: aggregates to the selected
+geography;</li>
+<li><code>1: Age group</code>: respondent’s age group;</li>
+<li><code>2: Sex</code>: respondent’s sex;</li>
+<li><code>3: Education</code>: respondent’s highest level of
+education;</li>
+<li><code>4: Income Feelings</code>: respondent’s feelings about their
+household income;</li>
+<li><code>5: Income Quintiles</code>: respondent’s per capita income
+quintile;</li>
+<li><code>6: Employment</code>: respondent’s employment Status</li>
+<li><code>7: Residence</code>: respondent’s residence: urban or
+rural;</li>
+<li><code>8: Household Size</code>: total number of people in the
+respondent’s household;</li>
+<li><code>9: Children in Household</code>: total number of children
+under 15 in the respondent’s household.</li>
 </ul>
 <p>Users need to provide the desired aggregation level to
 <code>wrp_get</code> as a string. It is also necessary to provide a
 question code string, such as those provided returned in
 <code>wrp_search</code>. The use of <code>wrp_get</code> looks like:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">wrp_get</span>(<span class="at">geography =</span> <span class="st">&quot;country&quot;</span>, <span class="at">wrp_question_uid =</span> <span class="st">&quot;Q1&quot;</span>))</span>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">wrp_get</span>(<span class="at">geography =</span> <span class="st">&quot;country&quot;</span>, <span class="at">wrp_question_uid =</span> <span class="st">&quot;Q1&quot;</span>, <span class="at">disaggregation =</span> <span class="dv">0</span>))</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 × 7</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   geography     disaggregation     group          year question  respo…¹ perce…²</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;         &lt;chr&gt;              &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;     &lt;dbl&gt;</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 United States National Statistic United States  2019 Feel Mor… More s…  17.9  </span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 United States National Statistic United States  2019 Feel Mor… Less s…  26.7  </span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 United States National Statistic United States  2019 Feel Mor… About …  55.2  </span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 United States National Statistic United States  2019 Feel Mor… (DK)      0.123</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 United States National Statistic United States  2019 Feel Mor… (Refus…   0.115</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 United States National Statistic United States  2021 Feel Mor… More s…  16.1  </span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   geography     disaggregation group          year question      respo…¹ perce…²</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;         &lt;chr&gt;          &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt;         &lt;chr&gt;     &lt;dbl&gt;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 United States Aggregate      United States  2019 Feel More, L… More s…  17.9  </span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 United States Aggregate      United States  2019 Feel More, L… Less s…  26.7  </span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 United States Aggregate      United States  2019 Feel More, L… About …  55.2  </span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 United States Aggregate      United States  2019 Feel More, L… (DK)      0.123</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 United States Aggregate      United States  2019 Feel More, L… (Refus…   0.115</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 United States Aggregate      United States  2021 Feel More, L… More s…  16.1  </span></span>
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with abbreviated variable names ¹​response, ²​percentage</span></span></code></pre></div>
 <p>This returns a 6 column dataframe in tidy format with the following
 columns:</p>
@@ -492,17 +493,21 @@ results.</p></li>
 disaggregation that provided the relevant response.</p></li>
 </ul>
 <p>To explore global trends, the user could use:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">wrp_get</span>(<span class="at">geography =</span> <span class="st">&quot;world&quot;</span>, <span class="at">wrp_question_uid =</span> <span class="st">&quot;Q1&quot;</span>))</span>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">wrp_get</span>(<span class="at">geography =</span> <span class="st">&quot;world&quot;</span>, <span class="at">wrp_question_uid =</span> <span class="st">&quot;Q1&quot;</span>, <span class="at">disaggregation =</span> <span class="dv">0</span>))</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 × 7</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   geography disaggregation group             year question       respo…¹ perce…²</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;     &lt;chr&gt;          &lt;chr&gt;            &lt;dbl&gt; &lt;chr&gt;          &lt;chr&gt;     &lt;dbl&gt;</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 World     global         Global Statistic  2019 Feel More, Le… More s…  36.4  </span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 World     global         Global Statistic  2019 Feel More, Le… Less s…  24.9  </span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 World     global         Global Statistic  2019 Feel More, Le… About …  36.1  </span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 World     global         Global Statistic  2019 Feel More, Le… (DK)      2.44 </span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 World     global         Global Statistic  2019 Feel More, Le… (Refus…   0.148</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 World     global         Global Statistic  2021 Feel More, Le… More s…  27.3  </span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   geography disaggregation group  year question                  respo…¹ perce…²</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;     &lt;chr&gt;          &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;                     &lt;chr&gt;     &lt;dbl&gt;</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 World     Aggregate      World  2019 Feel More, Less or About… More s…  36.4  </span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 World     Aggregate      World  2019 Feel More, Less or About… Less s…  24.9  </span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 World     Aggregate      World  2019 Feel More, Less or About… About …  36.1  </span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 World     Aggregate      World  2019 Feel More, Less or About… (DK)      2.44 </span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 World     Aggregate      World  2019 Feel More, Less or About… (Refus…   0.148</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 World     Aggregate      World  2021 Feel More, Less or About… More s…  27.3  </span></span>
 <span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with abbreviated variable names ¹​response, ²​percentage</span></span></code></pre></div>
+</div>
+</div>
+<div id="standard-use-case" class="section level1">
+<h1>Standard Use Case</h1>
 <p>So a standard use case stringing <code>wrp_search</code> and
 <code>wrp_get</code> together could look like:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Search for a topic</span></span>
@@ -513,18 +518,17 @@ disaggregation that provided the relevant response.</p></li>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the question code</span></span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>tmp <span class="ot">&lt;-</span> <span class="fu">unique</span>(tmp<span class="sc">$</span>wrp_question_uid)</span>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co"># get the data</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">wrp_get</span>(<span class="at">geography =</span> <span class="st">&quot;country&quot;</span>, <span class="at">wrp_question_uid =</span> tmp))</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">wrp_get</span>(<span class="at">geography =</span> <span class="st">&quot;country&quot;</span>, <span class="at">wrp_question_uid =</span> tmp, <span class="at">disaggregation =</span> <span class="dv">0</span>))</span>
 <span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 × 7</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   geography     disaggregation     group          year question  respo…¹ perce…²</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;         &lt;chr&gt;              &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;     &lt;dbl&gt;</span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 United States National Statistic United States  2021 Ever Exp… Yes      11.8  </span></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 United States National Statistic United States  2021 Ever Exp… No       88.2  </span></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 Egypt         National Statistic Egypt          2021 Ever Exp… Yes       2.12 </span></span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 Egypt         National Statistic Egypt          2021 Ever Exp… No       63.8  </span></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 Egypt         National Statistic Egypt          2021 Ever Exp… (Respo…  33.9  </span></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 Egypt         National Statistic Egypt          2021 Ever Exp… (Refus…   0.247</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   geography     disaggregation group          year question      respo…¹ perce…²</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;         &lt;chr&gt;          &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt;         &lt;chr&gt;     &lt;dbl&gt;</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 United States Aggregate      United States  2021 Ever Experie… Yes      11.8  </span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 United States Aggregate      United States  2021 Ever Experie… No       88.2  </span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 Egypt         Aggregate      Egypt          2021 Ever Experie… Yes       2.12 </span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 Egypt         Aggregate      Egypt          2021 Ever Experie… No       63.8  </span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 Egypt         Aggregate      Egypt          2021 Ever Experie… (Respo…  33.9  </span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 Egypt         Aggregate      Egypt          2021 Ever Experie… (Refus…   0.247</span></span>
 <span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with abbreviated variable names ¹​response, ²​percentage</span></span></code></pre></div>
-</div>
 </div>
 
 
